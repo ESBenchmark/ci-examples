@@ -12,12 +12,11 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      # Initialize repository
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: latest
-
       - uses: pnpm/action-setup@v3
         with:
           version: latest
@@ -26,7 +25,7 @@ jobs:
       # Use --tag argument to add the OS name to result.
       - run: pnpm exec esbench --tag os:${{ matrix.os }}
 
-      # Upload the result file to Actions artifacts
+      # Upload the result file to Actions Artifacts
       - uses: actions/upload-artifact@v4
         with:
           name: result-${{ matrix.os }}
@@ -42,18 +41,19 @@ jobs:
     needs: run
 
     steps:
+      # Initialize repository
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: latest
-
       - uses: pnpm/action-setup@v4
         with:
           version: latest
           run_install: true
 
-      # Download result files from Actions artifacts.
+      # Download result files from Actions Artifacts.
+      # Filename is like:
+      #   reports/result-${{ matrix.os }}/result.json
       - uses: actions/download-artifact@v4
         with:
           path: reports
