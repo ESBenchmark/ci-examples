@@ -29,7 +29,7 @@ jobs:
       # Upload the result file to Actions artifacts
       - uses: actions/upload-artifact@v4
         with:
-          name: result-${{ matrix.os }}.json
+          name: result-${{ matrix.os }}
 
           # This is the default path of Raw Reporter.
           path: node_modules/.esbench/result.json
@@ -58,7 +58,6 @@ jobs:
         with:
           path: reports
           pattern: result-*
-          merge-multiple: true
 
       # Use the report command to collect all results
-      - run: pnpm exec esbench report reports/*.json
+      - run: pnpm exec esbench report reports/**/*.json
