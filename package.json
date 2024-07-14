@@ -1,0 +1,12 @@
+{
+	"name": "esbench-ci-examples",
+	"private": true,
+	"description": "",
+	"type": "module",
+	"scripts": {
+		"run": "esbench"
+	},
+	"dependencies": {
+		"esbench": "^0.6.0"
+	}
+}
