@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       esbench:
-        specifier: ^0.6.0
-        version: 0.6.0
+        specifier: ^0.6.1
+        version: 0.6.1
 
 packages:
 
@@ -69,8 +69,8 @@ packages:
   es-module-lexer@1.5.4:
     resolution: {integrity: sha512-MVNK56NiMrOwitFB7cqDwq0CQutbw+0BvLshJSse0MUNU+y1FC3bUS/AQg7oUng+/wKrrki7JfmwtVHkVfPLlw==}
 
-  esbench@0.6.0:
-    resolution: {integrity: sha512-PsqSjcM1k9vLcm/ZQnhm53HuoJWVE9ONoXVJHLmHuxpyuSal5+eBSAJEV3TzoQS6pxU5WAaBS18zKFyOcnIf4w==}
+  esbench@0.6.1:
+    resolution: {integrity: sha512-EMEfg6PgEUTapR+XN3CPKlDEYrR3Nxjl46NeBML9yrKdUHlYipHbD0iEdubCk/qv9tkMKEJgr2culTSjdgX3hA==}
     hasBin: true
     peerDependencies:
       rollup: ^4.17.2
@@ -276,7 +276,7 @@ snapshots:
 
   es-module-lexer@1.5.4: {}
 
-  esbench@0.6.0:
+  esbench@0.6.1:
     dependencies:
       '@kaciras/utilities': 1.0.2
       chalk: 5.3.0

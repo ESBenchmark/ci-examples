@@ -7,6 +7,6 @@
 		"run": "esbench"
 	},
 	"dependencies": {
-		"esbench": "^0.6.0"
+		"esbench": "^0.6.1"
 	}
 }
