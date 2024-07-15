@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   run:
+    # Schedule 3 instances to run benchmark
     strategy:
       matrix:
         index: [1, 2, 3]
