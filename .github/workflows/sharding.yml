@@ -1,15 +1,15 @@
-name: Cross OS Example
+name: Sharding Example
 
 on: [push]
 
 jobs:
-  # First run the benchmarks in 3 operating systems.
   run:
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        index: [1, 2, 3]
+        total: [3]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       # Initialize repository
@@ -22,16 +22,16 @@ jobs:
           version: latest
           run_install: true
 
-      # Use --tag argument to add the OS name to result.
-      - run: pnpm exec esbench --tag os:${{ matrix.os }}
+      # Use `--shared` to make ESBench run partial of suites.
+      - run: pnpm exec esbench --shared ${{ matrix.index }}/${{ matrix.total }}
 
       # Upload the result file to Actions Artifacts
       - uses: actions/upload-artifact@v4
         with:
-          name: result-${{ matrix.os }}
+          name: result-${{ matrix.index }}.json
 
           # This is the default output path of Raw Reporter.
-          path: node_modules/.esbench/result.json
+          path: example/reports/benchmark.json
 
   # Start a Job to generate the report.
   report:

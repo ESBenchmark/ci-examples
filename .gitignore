@@ -20,5 +20,5 @@ pnpm-debug.log*
 *.sw?
 
 # Generated files
+chunk
 .esbench-tmp
-reports
