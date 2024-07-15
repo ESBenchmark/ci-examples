@@ -31,7 +31,7 @@ jobs:
           name: result-${{ matrix.index }}.json
 
           # This is the default output path of Raw Reporter.
-          path: example/reports/benchmark.json
+          path: node_modules/.esbench/result.json
 
   # Start a Job to generate the report.
   report:
