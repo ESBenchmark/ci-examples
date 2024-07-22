@@ -32,10 +32,5 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
+          path: dist
           name: ${{ matrix.os }}
-          path: |
-            index.node
-            build/Release/napi.node
-            pkg/echo.js
-            pkg/echo_bg.wasm
-            
