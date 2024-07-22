@@ -1,0 +1,39 @@
+name: Build
+
+on: [push]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: latest
+          run_install: true
+
+      - run: cargo install wasm-pack
+      - run: pnpm add -g node-gyp
+
+      - name: Build Addon
+        run: |
+          node-gyp configure
+          pnpm run build-rs
+          pnpm run build-wasm
+          pnpm run build-napi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.os }}
+          path: |
+            index.node
+            build/Release/napi.node
+            pkg/echo.js
+            pkg/echo_bg.wasm
+            
