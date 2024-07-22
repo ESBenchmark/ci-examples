@@ -15,4 +15,5 @@ node_modules
 /build
 /pkg
 /target
-/debug.js
+/dist
+/debug.[jt]s
