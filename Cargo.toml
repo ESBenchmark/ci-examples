@@ -1,0 +1,25 @@
+[package]
+name = "echo"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[features]
+wasm = []
+napi = []
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+
+[dependencies]
+wasm-bindgen = "0.2.92"
+serde-wasm-bindgen = "0.6.5"
+js-sys = "0.3.69"
+napi        = "2"
+napi-derive = "2"
+
+[build-dependencies]
+napi-build = "2"

@@ -4,9 +4,16 @@
 	"description": "",
 	"type": "module",
 	"scripts": {
+		"build-rs": "napi build --features napi --release",
+		"build-wasm": "wasm-pack build --target web --features wasm",
+		"build-napi": "node-gyp build",
 		"run": "esbench"
 	},
 	"dependencies": {
 		"esbench": "^0.6.1"
+	},
+	"devDependencies": {
+		"node-addon-api": "*",
+		"@napi-rs/cli": "^2.18.4"
 	}
 }
